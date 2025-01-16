@@ -1,0 +1,175 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}     % Umlaute
+\usepackage[T1]{fontenc}        % Korrekte Trennung
+\usepackage[ngerman]{babel}     % Deutsche Spracheinstellungen
+\usepackage{amsmath,amssymb}    % Mathematische Symbole
+\usepackage{booktabs}           % Für schönere Tabellenlinien
+\usepackage{array}              % Bessere Tabellenoptionen
+\usepackage{geometry}           % Seitenränder anpassen
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\setlength{\parindent}{0pt}     % Kein Einrücken nach Absätzen
+\setlength{\parskip}{1ex}       % Kleiner Abstand zwischen Absätzen
+
+\begin{document}
+
+\section*{Lösungsideen und Bearbeitungshinweise zu den Aufgaben}
+
+\textbf{Aufgabe 1a}
+
+\emph{Finde heraus, nach welchem System die Zahlen dargestellt werden und wie viele Werte mit den vier Leuchten insgesamt beschrieben werden können. Beantworte außerdem:}
+\begin{enumerate}
+  \item \emph{Was ist die kleinste/größte Zahl, die angezeigt werden kann?}
+    \item \emph{Überlege dir für jede Lampe: Welche Zahl wird addiert, wenn diese Lampe eingeschaltet wird und wie hängen diese Zahlen zusammen?}
+    \end{enumerate}
+
+    \subsection*{Erklärung}
+
+    \paragraph{1.\ Darstellungssystem}
+    Das beschriebene System ist das \textbf{Binärsystem} (Zweiersystem). Jede Lampe entspricht einem Wert, der einer \textbf{Zweierpotenz} zugeordnet ist.
+
+    \begin{itemize}
+     \item Bei genau 4 Lampen (von rechts nach links gelesen) haben wir typischerweise die Werte:
+      \[
+         \text{Lampe 1} : 2^0 = 1,\quad
+            \text{Lampe 2} : 2^1 = 2,\quad
+               \text{Lampe 3} : 2^2 = 4,\quad
+                  \text{Lampe 4} : 2^3 = 8.
+                   \]
+                    \item Ob Lampe 1 rechts oder links steht, ist nicht entscheidend. Wichtig ist nur, dass jede Lampe einem festgelegten Zweierpotenz-Wert entspricht.
+                    \end{itemize}
+
+                    \paragraph{2.\ Kleinste und größte Zahl}
+                    \begin{itemize}
+                     \item \textbf{Kleinste Zahl}: 0 (wenn alle Lampen aus sind).
+                      \item \textbf{Größte Zahl}: 15 (wenn alle 4 Lampen an sind). Denn
+                       \[
+                          8 + 4 + 2 + 1 = 15.
+                           \]
+                           \end{itemize}
+
+                           \paragraph{3.\ Welche Zahl wird addiert, wenn eine Lampe eingeschaltet wird?}
+                           \begin{itemize}
+                            \item Lampe 1 (ganz rechts): \(+1\)
+                             \item Lampe 2: \(+2\)
+                              \item Lampe 3: \(+4\)
+                               \item Lampe 4: \(+8\)
+                               \end{itemize}
+                               Die Summe aller \emph{eingeschalteten} Lampen ergibt die angezeigte Dezimalzahl.
+
+                               \paragraph{4.\ Wie viele Werte können mit 4 Lampen insgesamt dargestellt werden?}
+                               Mit 4 Binärstellen (4 Lampen) kann man \(\,2^4 = 16\) verschiedene Werte abbilden, nämlich 0 bis 15.
+
+                               \bigskip
+
+                               \textbf{Aufgabe 1b}
+
+                               \emph{Folgere, wie die Zahlen 32 und 47 nach diesem System dargestellt werden müssten, und gib beide Darstellungen an. (Hinweis: Die Zahl der Leuchten wird erweitert.)}
+
+                               Da 4 Lampen nur bis 15 reichen, benötigen wir mehr ``Binärstellen'' (Lampen), um 32 bzw.\ 47 darzustellen.
+
+                               \begin{itemize}
+                                \item Für den Bereich bis mindestens 47 braucht man \textbf{6 Lampen}, denn mit 5 Lampen kommt man nur bis:
+                                   \[
+                                        2^5 - 1 = 31,
+                                           \]
+                                              und das reicht für 32/47 nicht aus.
+                                              \end{itemize}
+
+                                              \paragraph{Zahl 32}
+                                              \[
+                                                32_{\,(10)} = 2^5 = 100000_2
+                                                \]
+                                                In einer 6-Bit-Darstellung wäre also nur die Lampe für \(2^5\) an, alle anderen (16, 8, 4, 2, 1) sind aus.
+
+                                                \paragraph{Zahl 47}
+                                                \[
+                                                  47 = 32 + 8 + 4 + 2 + 1 = 101111_2
+                                                  \]
+                                                  - Lampe 6 (32): \emph{an} \\
+                                                  - Lampe 5 (16): \emph{aus} \\
+                                                  - Lampe 4 (8): \emph{an} \\
+                                                  - Lampe 3 (4): \emph{an} \\
+                                                  - Lampe 2 (2): \emph{an} \\
+                                                  - Lampe 1 (1): \emph{an}
+
+                                                  \bigskip
+
+                                                  \textbf{Aufgabe 2}
+
+                                                  \emph{Lies dir die entsprechenden Buchseiten durch und erstelle dir selbst eine Übersicht über die Codierung im Binärsystem.}
+
+                                                  Hier erstellst du dir ein eigenes kleines ``Merkblatt'' zum Binärsystem:
+                                                  \begin{itemize}
+                                                   \item Jede Stelle (Bit) steht für eine Zweierpotenz \(2^k\), beginnend bei \(2^0\) ganz rechts, dann \(2^1\), \(2^2\), usw.
+                                                    \item Beispiel:
+                                                       \[
+                                                            5 = 4 + 1 = 101_2 \quad\text{(in einer 3-Bit-Darstellung)},
+                                                               \]
+                                                                  \[
+                                                                       13 = 8 + 4 + 1 = 1101_2 \quad\text{(in einer 4-Bit-Darstellung)}.
+                                                                          \]
+                                                                           \item Die maximal darstellbare Zahl mit \(n\) Bits ist \(\,2^n - 1\).
+                                                                           \end{itemize}
+
+                                                                           Eine Beispiel-Tabelle:
+
+                                                                           \begin{center}
+                                                                           \begin{tabular}{@{}rcc@{}}
+                                                                           \toprule
+                                                                           \textbf{Dezimal} & \textbf{Binär} & \textbf{Potenzen} \\
+                                                                           \midrule
+                                                                           0 & 0000 & -- \\
+                                                                           1 & 0001 & \(2^0\) \\
+                                                                           2 & 0010 & \(2^1\) \\
+                                                                           3 & 0011 & \(2^1 + 2^0\) \\
+                                                                           4 & 0100 & \(2^2\) \\
+                                                                           \vdots & \vdots & \vdots \\
+                                                                           \bottomrule
+                                                                           \end{tabular}
+                                                                           \end{center}
+
+                                                                           \bigskip
+
+                                                                           \textbf{Aufgabe 3 (B.S.\ 53/2)}
+
+                                                                           \emph{„Zum Geburtstag viel Glück – und wenige Kerzen“: Ermitteln Sie, nach welchem Prinzip Minas Gäste ihr Alter dargestellt haben, beantworten Sie Minas Fragen und diskutieren Sie, woran man erkennt, wer älter ist. Formulieren Sie anschließend eine allgemeine Regel.}
+
+                                                                           \subsection*{Grundprinzip (Kerzensystem)}
+                                                                           Das Alter wird im \textbf{Binärsystem} durch Kerzen abgebildet. Jede Kerze steht für eine Zweierpotenz:
+                                                                           \[
+                                                                             2^0, \; 2^1, \; 2^2, \; 2^3, \; 2^4, \;\dots
+                                                                             \]
+                                                                             Eine \emph{brennende} Kerze bedeutet ``+diesen Wert'', eine \emph{nicht brennende} Kerze bedeutet ``+0''.
+
+                                                                             \subsubsection*{Fragen aus dem Text}
+                                                                             \begin{enumerate}
+                                                                               \item \textbf{An welchen Geburtstagen kommt eine weitere Kerze dazu?} \\
+                                                                                 Genau dann, wenn eine neue Zweierpotenz erreicht wird: 1, 2, 4, 8, 16, 32, \dots
+
+                                                                                   \item \textbf{An welchen Geburtstagen müssen alle vorhandenen Kerzen brennen, an welchen nur eine?}
+                                                                                     \begin{itemize}
+                                                                                         \item \emph{Alle vorhandenen Kerzen brennen}, wenn das Alter eine weniger als die nächste Zweierpotenz ist, z.\,B. 3 (nächste Potenz 4), 7 (nächste Potenz 8), 15 (nächste Potenz 16) usw.
+                                                                                             \item \emph{Nur eine Kerze brennt} bei den Zweierpotenzen selbst: 1, 2, 4, 8, 16, \dots
+                                                                                               \end{itemize}
+
+                                                                                                 \item \textbf{Welche Anzahl von Kerzen wird auch im hohen Alter ausreichend sein?} \\
+                                                                                                   Man benötigt so viele Kerzen, dass \(\,2^{\text{(Anzahl Kerzen)}} - 1\) größer (oder gleich) dem maximalen Alter ist. Beispiel: Um bis 127 Jahre abdecken zu können, braucht man 7 Kerzen (\(2^7 - 1 = 127\)).
+                                                                                                   \end{enumerate}
+
+                                                                                                   \subsubsection*{Woran erkennt man, wer älter ist?}
+                                                                                                   Es ist erkennbar an den \emph{höheren Kerzen}, also den größeren Zweierpotenzen. Wer z.\,B.\ schon die Kerze für \(2^4 = 16\) brennen hat, ist mindestens 16 Jahre alt; jemand ohne diese Kerze ist jünger.
+
+                                                                                                   \subsubsection*{Allgemeine Regel}
+                                                                                                   \emph{Jedes Alter wird als Summe von Zweierpotenzen dargestellt. Jede Kerze für \(2^i\) ist entweder an (wenn diese Potenz im Alter enthalten ist) oder aus. So lässt sich eindeutig und schnell erkennen, wie viel jemand ``auf dem Kuchen'' an Lebensjahren hat, ohne viele Einzalkerzen.}
+
+                                                                                                   \bigskip
+                                                                                                   \textbf{Zusammenfassung:}
+                                                                                                   \begin{itemize}
+                                                                                                    \item \textbf{Aufgabe 1:} Binärsystem, 4 Lampen für Werte 0--15. Für 32 und 47 müssen wir auf 6 Lampen erweitern (32 = \(100000_2\), 47 = \(101111_2\)).
+                                                                                                     \item \textbf{Aufgabe 2:} Eigenes Merkblatt zur Binärdarstellung erstellen (Potenzen von 2, Umwandlung, Beispiele).
+                                                                                                      \item \textbf{Aufgabe 3:} Geburtstags-Kerzensystem als Binärsystem; neue Kerze bei jeder Zweierpotenz, man erkennt höheres Alter an höheren Zweierpotenzen. Wenige Kerzen reichen für große Zahlen.
+                                                                                                      \end{itemize}
+
+                                                                                                      \end{document}
+                                                                                                      
